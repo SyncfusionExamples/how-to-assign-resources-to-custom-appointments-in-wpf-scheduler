@@ -1,0 +1,33 @@
+﻿<Window x:Class="Schedule_MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:Schedule_MVVM"
+        Title="Schedule MVVM Demo" Height="350" Width="525" WindowState="Maximized" 
+        Icon="/Schedule_MVVM;component/Syncfusion.ico">
+
+    <Grid>
+
+        <syncfusion:SfSchedule x:Name="Schedule" 
+                               TimeInterval="OneHour"
+                               ScheduleResourceTypeCollection="{Binding ScheduleResourcesCollection}" 
+                               ItemsSource="{Binding ScheduleAppointmentCollection}"
+                               Resource="Doctors"
+                               ScheduleType="Day"
+                               >
+            <syncfusion:SfSchedule.AppointmentMapping>
+                <syncfusion:ScheduleAppointmentMapping
+                    SubjectMapping="Subject" 
+                    ResourceCollectionMapping="ResourceCollection"
+                     ResourceNameMapping="ResourceName"
+                     TypeNameMapping="TypeName"
+                     DisplayNameMapping="DisplayName"
+                    StartTimeMapping="StartTime"
+                    EndTimeMapping="EndTime"
+                    LocationMapping="Location"/>
+            </syncfusion:SfSchedule.AppointmentMapping>
+        </syncfusion:SfSchedule>
+
+    </Grid>
+</Window>
+ 
